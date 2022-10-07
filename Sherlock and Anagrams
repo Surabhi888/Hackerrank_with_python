@@ -1,0 +1,13 @@
+def sherlockAndAnagrams(s):
+    n = len(s)
+    tmp = {}
+    count = 0
+        # go through all substrings
+    for i in range(n+1):
+        for j in range(i+1, n+1):
+            k = "".join(sorted(s[i:j]))
+            # adds no of anagrams to dictionary
+            count += tmp.get(k,0)
+            tmp[k] = tmp.get(k, 0) + 1
+    print(tmp)
+    return count
