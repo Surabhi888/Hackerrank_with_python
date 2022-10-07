@@ -1,0 +1,15 @@
+def climbingLeaderboard(ranked, player):
+    ranked = sorted(set(ranked))
+    ans = []
+    i = 0
+    n = len(ranked)
+    for j in player:
+        while i < n:
+            if j < ranked[i]:
+                ans.append(n - i + 1)
+                break
+            if j >= ranked[-1]:
+                ans.append(1)
+                break
+            i += 1
+    return ans
